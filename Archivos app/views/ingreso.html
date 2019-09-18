@@ -1,0 +1,42 @@
+<div class="modal" ui-if="ingreso" ui-shared-state="ingreso">
+    <div class="modal-backdrop in"></div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body" ng-controller="controllerGuardar">
+                <form name="myForm" novalidate ng-submit="controllerGuardar(dato)" id="formulario">
+                    <div class="well">
+                        <div class="form-group">
+                            <label for="monto">Monto</label>
+                            <input name="monto" id="monto" type="number" ng-model="dato.monto" class="form-control" placeholder="Escriba su monto a ingresar" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Descripción</label>
+                            <input name="descripcion" id="descripcion" type="text" ng-model="dato.descripcion" class="form-control" placeholder="Describa su ingreso" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="categoria">Seleccione la categoría</label>
+                            <select class="form-control" name="categoria" id="categoria" ng-model="dato.categoria" required>
+                                <option value="Transporte">Transporte</option>
+                                <option value="Sube">Sube</option>
+                                <option value="Comida">Comida</option>
+                                <option value="Salud">Salud</option>
+                                <option value="Salidas">Salidas</option>
+                                <option value="Tarjetas">Tarjetas</option>
+                                <option value="Deportes">Deportes</option>
+                                <option value="Celular">Celular</option>
+                                <option value="Regalos">Regalos</option>
+                                <option value="Impuestos">Impuestos</option>
+                                <option value="Estudios">Estudios</option>
+                                <option value="Otros" selected>Otros</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <input ui-turn-off="ingreso" type="button" value="Cancelar" class="btn btn-default" />
+                            <input type="submit" value="Ingresar" id="guardar" class="btn btn-primary" ng-disabled="myForm.$invalid" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

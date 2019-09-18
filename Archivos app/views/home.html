@@ -1,0 +1,28 @@
+<div class="scrollable">
+    <div class="scrollable-content">
+        <ul class="categorias" ng-controller="controllerClick">
+            <li class="categoria" id="cat1" ng-click="Click('Transporte')" ui-turn-on="categoriaclick"><i class="fa fa-car fa-4x"></i>Transporte</li>
+            <li class="categoria" id="cat2" ng-click="Click('Sube')" ui-turn-on="categoriaclick"><i class="fa fa-bus fa-4x"></i>Sube</li>
+            <li class="categoria" id="cat3" ng-click="Click('Comida')" ui-turn-on="categoriaclick"><i class="fa fa-cutlery fa-4x"></i>Comida</li>
+            <li class="categoria" id="cat4" ng-click="Click('Salud')" ui-turn-on="categoriaclick"><i class="fa fa-heartbeat fa-4x"></i>Salud</li>
+            <li class="categoria" id="cat5" ng-click="Click('Estudios')" ui-turn-on="categoriaclick"><i class="fa fa-graduation-cap fa-4x"></i>Estudios</li>
+            <li class="categoria" id="cat6" ng-click="Click('Salidas')" ui-turn-on="categoriaclick"><i class="fa fa-glass fa-4x"></i>Salidas</li>
+            <li class="categoria" id="cat7" ng-click="Click('Impuestos')" ui-turn-on="categoriaclick"><i class="fa fa-newspaper-o fa-4x"></i>Impuestos</li>
+            <li class="categoria" id="cat8" ng-click="Click('Tarjetas')" ui-turn-on="categoriaclick"><i class="fa fa-credit-card fa-4x"></i>Tarjetas</li>
+            <li class="categoria" id="cat9" ng-click="Click('Regalos')" ui-turn-on="categoriaclick"><i class="fa fa-gift fa-4x color-red"></i>Regalos</li>
+            <li class="categoria" id="cat10" ng-click="Click('Celular')" ui-turn-on="categoriaclick"><i class="fa fa-mobile fa-4x"></i>Celular</li>
+            <li class="categoria" id="cat11" ng-click="Click('Deportes')" ui-turn-on="categoriaclick"><i class="fa fa-soccer-ball-o fa-4x"></i>Deportes</li>
+            <li class="categoria" id="cat12" ng-click="Click('Otros')" ui-turn-on="categoriaclick"><i class="fa fa-question fa-4x"></i>Otros</li>
+            <span id="Balance" ng-controller="controllerMostrar">{{balanceController | currency}}</span>
+        </ul>
+    </div>
+    <div class="section section-break" id="botones" ng-controller="controllerClick">
+        <a href="" ng-click="clickMov('ingreso')" ui-turn-on="ingreso" class="btn btn-default" id="ingreso">Ingreso</a>
+        <a href="" ng-click="clickMov('egreso')" ui-turn-on="egreso" class="btn btn-default" id="egreso">Egreso</a>
+    </div>
+    <div ui-content-for="modals">
+        <div ng-include="'views/ingreso.html'"></div>
+        <div ng-include="'views/egreso.html'"></div>
+        <div ng-include="'views/categoriaclick.html'"></div>
+    </div>
+</div>

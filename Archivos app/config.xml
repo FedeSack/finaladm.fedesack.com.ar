@@ -1,0 +1,53 @@
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" 
+id="ar.com.fedesack.finaladm" version="1.0.0">
+  <name>Gastapp</name>
+  <description>Aplicación para administración de gastos mobile.</description>
+  <author email="federico.sack@davinci.edu.ar" href="http://finaladm.fedesack.com.ar">Federico Sack - Escuela Da Vinci</author>
+  <content src="index.html"/>
+  <preference name="DisallowOverscroll" value="true"/>
+  <preference name="android-minSdkVersion" value="14"/>
+  <preference name='pgb-builder-version' value='2' />
+ 
+  <plugin name="cordova-plugin-splashscreen" spec="3.2.2" />
+  <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
+
+  <icon src="res/icon/icon_ldpi.png" 
+	gap:platform="android" gap:density="ldpi" />
+  <icon src="res/icon/icon_mdpi.png" 
+	gap:platform="android" gap:density="mdpi" />
+  <icon src="res/icon/icon_hdpi.png" 
+	gap:platform="android" gap:density="hdpi" />
+  <icon src="res/icon/icon_xhdpi.png" 
+	gap:platform="android" gap:density="xhdpi" />
+  
+  <gap:splash src="res/screen/screen_ldpi.png" 
+	gap:platform="android" gap:density="ldpi" />
+  <gap:splash src="res/screen/screen_mdpi.png" 
+	gap:platform="android" gap:density="mdpi" />
+	<gap:splash src="res/screen/screen_hdpi.png" 
+	gap:platform="android" gap:density="hdpi" />
+	<gap:splash src="res/screen/screen_xhdpi.png" 
+	gap:platform="android" gap:density="xhdpi" />
+
+
+   <!-- agregar para las consultas ajax -->
+   <access origin="*"/>
+   <allow-navigation href="http://finaladm.fedesack.com.ar/*" />
+   <allow-navigation href="*://*.finaladm.fedesack.com.ar/*" />
+   <allow-navigation href="*" />
+  
+  <allow-intent href="*"/>
+  <allow-intent href="http://*/*"/>
+  <allow-intent href="https://*/*"/>
+  <allow-intent href="tel:*"/>
+  <allow-intent href="sms:*"/>
+  <allow-intent href="mailto:*"/>
+  <allow-intent href="geo:*"/>
+  <platform name="android">
+    <allow-intent href="market:*"/>
+  </platform>
+  <platform name="ios">
+    <allow-intent href="itms:*"/>
+    <allow-intent href="itms-apps:*"/>
+  </platform>
+</widget>

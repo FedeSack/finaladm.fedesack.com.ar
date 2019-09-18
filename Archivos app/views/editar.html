@@ -1,0 +1,51 @@
+<div class="modal" ui-if="editar" ui-shared-state="editar">
+    <div class="modal-backdrop in"></div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body" ng-controller="controllerEditar">
+                <form name="myForm" novalidate ng-submit="actualizar(editado)" id="formulario">
+                    <div class="well">
+                        <div class="form-group">
+                            <label for="monto">Monto</label>
+                            <input name="monto" id="monto" type="number" ng-model="editado.monto" class="form-control" placeholder="{{x.monto}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Descripción</label>
+                            <input name="descripcion" id="descripcion" type="text" ng-model="editado.descripcion" class="form-control" placeholder="{{x.descripcion}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="categoria">Seleccione la categoría</label>
+                            <select class="form-control" name="categoria" id="categoria" ng-model="editado.categoria" required>
+                                <option value="" disabled selected hidden>{{x.categoria}}</option>
+                                <option value="Transporte">Transporte</option>
+                                <option value="Sube">Sube</option>
+                                <option value="Comida">Comida</option>
+                                <option value="Salud">Salud</option>
+                                <option value="Salidas">Salidas</option>
+                                <option value="Tarjetas">Tarjetas</option>
+                                <option value="Deportes">Deportes</option>
+                                <option value="Celular">Celular</option>
+                                <option value="Regalos">Regalos</option>
+                                <option value="Impuestos">Impuestos</option>
+                                <option value="Estudios">Estudios</option>
+                                <option value="Otros">Otros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo">Seleccione su tipo de monto</label>
+                            <select class="form-control" name="tipo" id="tipo" ng-model="editado.tipo" required>
+                                <option value="" disabled selected hidden>{{x.tipoName}}</option>
+                                <option value="{{x.tipo}}">{{x.tipoName}}</option>
+                                <option value="{{x.tipoOtro}}">{{x.tipoOtroName}}</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <input ui-turn-off="editar" type="button" value="Cancelar" class="btn btn-default" />
+                            <input type="submit" value="Editar" id="guardar" class="btn btn-primary" ng-disabled="myForm.$invalid" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

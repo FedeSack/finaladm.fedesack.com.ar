@@ -1,0 +1,86 @@
+<div class="scrollable">
+    <div class="scrollable-content" ng-controller="controllerMostrar">
+        <div class="section">
+            <ui-shared-state id="activeTab" default="1"></ui-shared-state>
+            <ul class="nav nav-tabs">
+                <li ui-class="{'active': activeTab == 1}">
+                    <a ui-set="{'activeTab': 1}">Todos</a>
+                </li>
+                <li ui-class="{'active': activeTab == 2}">
+                    <a ui-set="{'activeTab': 2}">Ingresos</a>
+                </li>
+                <li ui-class="{'active': activeTab == 3}">
+                    <a ui-set="{'activeTab': 3}">Egresos</a>
+                </li>
+            </ul>
+            <div ui-if="activeTab == 1">
+                <div class="section panel-ext">
+                    <div class="panel panel-default" ng-repeat="x in traeme | orderBy:'id':true">
+                        <div class="panel-heading {{x.tipo}}">
+                            <div class="btn-group pull-right">
+                                <a ui-turn-on="myDropdown{{traeme.indexOf(x)}}" class="btn"><i class="fa fa-ellipsis-v"></i></a>
+                                <ul ui-shared-state="myDropdown{{traeme.indexOf(x)}}" class="dropdown-menu" ui-outer-click="Ui.turnOff('myDropdown' + traeme.indexOf(x))" ui-outer-click-if="Ui.active('myDropdown' + traeme.indexOf(x))" role="menu" ui-show="myDropdown{{traeme.indexOf(x)}}" ui-turn-off="myDropdown{{traeme.indexOf(x)}}">
+                                    <li ui-turn-on="editar" ng-controller="controllerEditar"  ng-click="editar(x)"><a>Editar</a></li>
+                                    <li ng-click="borrar(x)"><a>Eliminar</a></li>
+                                </ul>
+                            </div>
+                            <h3 class="panel-title">{{x.categoria}}</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p><b>Descripción:</b> {{x.descripcion}}</p>
+                            <p><b>Monto:</b> {{x.monto | currency}}</p>
+                            <p><b>Fecha:</b> {{x.fecha | date:'dd-MM-yyyy'}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ui-if="activeTab == 2">
+                <div class="section panel-ext">
+                    <div class="panel panel-default" ng-repeat="x in traeme | orderBy:'id':true | filter: { tipo: 'ingreso' }">
+                        <div class="panel-heading {{x.tipo}}">
+                            <div class="btn-group pull-right">
+                                <a ui-turn-on="myDropdown{{traeme.indexOf(x)}}" class="btn"><i class="fa fa-ellipsis-v"></i></a>
+                                <ul ui-shared-state="myDropdown{{traeme.indexOf(x)}}" class="dropdown-menu" ui-outer-click="Ui.turnOff('myDropdown' + traeme.indexOf(x))" ui-outer-click-if="Ui.active('myDropdown' + traeme.indexOf(x))" role="menu" ui-show="myDropdown{{traeme.indexOf(x)}}" ui-turn-off="myDropdown{{traeme.indexOf(x)}}">
+                                    <li ui-turn-on="editar" ng-controller="controllerEditar"  ng-click="editar(x)"><a>Editar</a></li>
+                                    <li ng-click="borrar(x)"><a>Eliminar</a></li>
+                                </ul>
+                            </div>
+                            <h3 class="panel-title">{{x.categoria}}</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p><b>Descripción:</b> {{x.descripcion}}</p>
+                            <p><b>Monto:</b> {{x.monto | currency}}</p>
+                            <p><b>Fecha:</b> {{x.fecha | date:'dd-MM-yyyy'}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ui-if="activeTab == 3">
+                <div class="section panel-ext">
+                    <div class="panel panel-default" ng-repeat="x in traeme | orderBy:'id':true | filter: { tipo: 'egreso' }">
+                        <div class="panel-heading {{x.tipo}}">
+                            <div class="btn-group pull-right">
+                                <a ui-turn-on="myDropdown{{traeme.indexOf(x)}}" class="btn"><i class="fa fa-ellipsis-v"></i></a>
+                                <ul ui-shared-state="myDropdown{{traeme.indexOf(x)}}" class="dropdown-menu" ui-outer-click="Ui.turnOff('myDropdown' + traeme.indexOf(x))" ui-outer-click-if="Ui.active('myDropdown' + traeme.indexOf(x))" role="menu" ui-show="myDropdown{{traeme.indexOf(x)}}" ui-turn-off="myDropdown{{traeme.indexOf(x)}}">
+                                    <li ui-turn-on="editar" ng-controller="controllerEditar"  ng-click="editar(x)"><a>Editar</a></li>
+                                    <li ng-click="borrar(x)"><a>Eliminar</a></li>
+                                </ul>
+                            </div>
+                            <h3 class="panel-title">{{x.categoria}}</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p><b>Descripción:</b> {{x.descripcion}}</p>
+                            <p><b>Monto:</b> {{x.monto | currency}}</p>
+                            <p><b>Fecha:</b> {{x.fecha | date:'dd-MM-yyyy'}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ui-content-for="modals">
+        <div ng-include="'views/editar.html'"></div>
+    </div>
+</div>
